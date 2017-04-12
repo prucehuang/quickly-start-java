@@ -1,4 +1,4 @@
-package com.git.huanghaifeng.java.Thread;
+package com.git.huanghaifeng.java.thread;
 
 public class RunnableDemo implements Runnable {
 	long minPrime;
@@ -10,6 +10,12 @@ public class RunnableDemo implements Runnable {
 	public void run() {
 		while (true) {
 			System.out.println(this.minPrime);
+			
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 
 	}
