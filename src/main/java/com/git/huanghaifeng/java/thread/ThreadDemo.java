@@ -16,10 +16,17 @@ public class ThreadDemo extends Thread {
 		this.running_flag = running_flag;
 	}
 
+	public void stopThread() throws InterruptedException {
+		this.setRunning_flag(false);
+		//wait for all son thread finish
+		this.join();
+	}
+	
 	ThreadDemo(long minPrime) {
 		this.minPrime = minPrime;
-	}
+	}				
 
+	
 	@Override
 	public void run() {
 		while (this.running_flag) {
@@ -45,9 +52,7 @@ public class ThreadDemo extends Thread {
 		try {
 			for (ThreadDemo demo : list) {
 				Thread.sleep(500);
-				demo.setRunning_flag(false);
-				//wait for all son thread finish
-				demo.join();
+				demo.stopThread();
 			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
