@@ -1,4 +1,4 @@
-package com.git.huanghaifeng.java.thread;
+package com.git.huanghaifeng.java.thread.create;
 
 import java.util.ArrayList;
 import java.util.List;

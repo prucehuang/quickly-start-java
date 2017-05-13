@@ -1,4 +1,4 @@
-package com.git.huanghaifeng.java.thread;
+package com.git.huanghaifeng.java.thread.create;
 
 public class RunnableDemo implements Runnable {
 	long minPrime;
