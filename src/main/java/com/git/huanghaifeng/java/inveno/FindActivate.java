@@ -29,9 +29,9 @@ public class FindActivate {
 	private static long request_session_count = 0;
 	private static long push_click_session_count = 0;
 	private static long not_push_click_session_count = 0;
-	private static Set<String> request_session_user_count = new HashSet<String>();
-	private static Set<String> push_click_session_user_count = new HashSet<String>();
-	private static Set<String> not_push_click_session_user_count = new HashSet<String>();
+	private static Set<String> request_session_user = new HashSet<String>();
+	private static Set<String> push_click_session_user = new HashSet<String>();
+	private static Set<String> not_push_click_session_user = new HashSet<String>();
 	
 	public static void usage() {
 		System.out.println(FindActivate.class.getName()
@@ -59,9 +59,9 @@ public class FindActivate {
 
 		find_activate.analyzeActivateUser();
 
-		find_activate.mapToString(user_data_map);
-		System.out.println("------------------");
-		find_activate.mapToString(activate_user_result_data_map);
+//		find_activate.mapToString(user_data_map);
+//		System.out.println("------------------");
+//		find_activate.mapToString(activate_user_result_data_map);
 
 		find_activate.writeFile(args[4]);
 	}
@@ -175,17 +175,21 @@ public class FindActivate {
 					this.accumulateCount(tmp, key);
 				}
 
-				writer.write(key + "\t" + value_set.size() + "\n");
+				//writer.write(key + "\t" + value_set.size() + "\n");
+			}
+			
+			for(String uid : request_session_user){
+				writer.write(uid + "\n");
 			}
 
 			System.out.println("request user session count is " + request_session_count);
-			System.out.println("request user count is " + request_session_user_count.size());
+			System.out.println("request user count is " + request_session_user.size());
 			
 			System.out.println("push click user session count is " + push_click_session_count);
-			System.out.println("push click user count is " + push_click_session_user_count.size());
+			System.out.println("push click user count is " + push_click_session_user.size());
 			
 			System.out.println("not push click user session count is " + not_push_click_session_count);
-			System.out.println("not push click user count is " + not_push_click_session_user_count.size());
+			System.out.println("not push click user count is " + not_push_click_session_user.size());
 			
 			System.out.println("all session user count is " + activate_user_result_data_map.size());			
 		} catch (FileNotFoundException e) {
@@ -210,15 +214,15 @@ public class FindActivate {
 		switch (type) {
 			case REQUEST:
 				request_session_count++;
-				request_session_user_count.add(uid);
+				request_session_user.add(uid);
 				break;
 			case PUSH_CLICK:
 				push_click_session_count++;
-				push_click_session_user_count.add(uid);
+				push_click_session_user.add(uid);
 				break;
 			case NOT_PUSH_CLICK:
 				not_push_click_session_count++;
-				not_push_click_session_user_count.add(uid);
+				not_push_click_session_user.add(uid);
 				break;
 			default:
 				break;
