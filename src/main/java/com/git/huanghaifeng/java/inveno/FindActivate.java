@@ -59,9 +59,9 @@ public class FindActivate {
 
 		find_activate.analyzeActivateUser();
 
-//		find_activate.mapToString(user_data_map);
-//		System.out.println("------------------");
-//		find_activate.mapToString(activate_user_result_data_map);
+		find_activate.mapToString(user_data_map);
+		System.out.println("------------------");
+		find_activate.mapToString(activate_user_result_data_map);
 
 		find_activate.writeFile(args[4]);
 	}

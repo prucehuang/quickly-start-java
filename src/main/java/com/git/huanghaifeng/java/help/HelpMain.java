@@ -23,6 +23,8 @@ public class HelpMain {
 		
 		double[] double_arr = {0.0, 0.1, 0.2};
 		System.out.println(double_arr[2]);
+		
+
 	}  
 
 }

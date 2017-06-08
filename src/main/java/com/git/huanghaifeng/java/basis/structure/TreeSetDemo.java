@@ -1,24 +1,28 @@
-//package com.git.huanghaifeng.java.basis.structure;
-//
-//import java.util.Comparator;
-//import java.util.NavigableSet;
-//import java.util.Objects;
-//import java.util.SortedSet;
-//import java.util.TreeSet;
-//
-//public class TreeSetDemo {
-//	public static void main(String[] args) {
-//		TreeSet<> parts = new TreeSet<>();
-//		parts.add(new Item("Toaster", 1234));
-//		parts.add(new Item("Widget", 4562));
-//		parts.add(new Item("Modem", 9912));
-//		System.out.println(parts);
-//		System.out.println(parts.first());
-//		// (new Item()).getDescription()
-//		NavigableSet<Item> sortByDescription = new TreeSet<>();
-//		
-//		sortByDescription.addAll(parts);
-//		System.out.println(sortByDescription);
-//	}
-//}
-//
+package com.git.huanghaifeng.java.basis.structure;
+
+import java.util.Comparator;
+import java.util.NavigableSet;
+import java.util.TreeSet;
+
+public class TreeSetDemo {
+	public static void main(String[] args) {
+		TreeSet<String> parts = new TreeSet<>(new MyComparator());
+		parts.add("Coaster");
+		parts.add("Bidget");
+		parts.add("Aodem");
+		System.out.println(parts);
+		System.out.println(parts.first());
+		NavigableSet<String> sortByDescription = new TreeSet<>();
+
+		sortByDescription.addAll(parts);
+		System.out.println(sortByDescription);
+	}
+}
+
+class MyComparator implements Comparator<String> {
+
+	@Override
+	public int compare(String o1, String o2) {
+		return -o1.compareTo(o2);
+	}
+}
