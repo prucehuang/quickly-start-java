@@ -1,4 +1,4 @@
-package com.git.huanghaifeng.java.queue;
+package com.git.huanghaifeng.java.thread.current;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
